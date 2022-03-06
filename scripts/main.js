@@ -1,30 +1,5 @@
 const grid = document.querySelector('.grid');
 
-function displayGrid(columns, images) {
-  grid.innerHTML = '';
-  for (let col = 0; col < columns; col++) {
-    const column = document.createElement('div');
-    column.classList.add('column');
-    for (let idx = 0; idx < images.length; idx++) {
-      if ((idx % columns) == col) {
-        const div = document.createElement('div');
-        div.classList.add('image');
-        const img = document.createElement('img');
-        img.src = images[idx];
-        div.appendChild(img);
-        
-        const overlay = document.createElement('div');
-        overlay.classList.add('overlay');
-        div.appendChild(overlay);
-        
-        column.appendChild(div);
-      }
-    }
-    grid.appendChild(column);
-  }
-}
-
-/* Open color */
 const colors = [
   'ff8787',  /* red */
   'f783ac',  /* pink */
@@ -52,6 +27,31 @@ const sizes = [
   '120x160',
   '140x100'
 ];
+
+
+function displayGrid(columns, images) {
+  grid.innerHTML = '';
+  for (let col = 0; col < columns; col++) {
+    const column = document.createElement('div');
+    column.classList.add('column');
+    for (let idx = 0; idx < images.length; idx++) {
+      if ((idx % columns) == col) {
+        const div = document.createElement('div');
+        div.classList.add('image');
+        const img = document.createElement('img');
+        img.src = images[idx];
+        div.appendChild(img);
+        
+        const overlay = document.createElement('div');
+        overlay.classList.add('overlay');
+        div.appendChild(overlay);
+        
+        column.appendChild(div);
+      }
+    }
+    grid.appendChild(column);
+  }
+}
 
 function generateImages(count) {
   const images = [];
